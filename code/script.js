@@ -24,11 +24,19 @@ const parentEl = document.getElementById("parent");
 async function getFAQs() {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const faqData = await response.json();
-  faqData.forEach((faq) => {
+  faqData.forEach((faq, index) => {
     const faqEl = document.createElement("div");
     faqEl.setAttribute("class", "title");
+    faqEl.style.backgroundColor = index % 2 === 0 ? "azure" : "white";
+    faqEl.addEventListener("mouseover", (event) => {
+      faqEl.style.backgroundColor =
+        index % 2 === 0 ? "rgb(183, 222, 222)" : "rgb(189, 187, 187)";
+    });
+    faqEl.addEventListener("mouseout", (event) => {
+      faqEl.style.backgroundColor = index % 2 === 0 ? "azure" : "white";
+    });
     faqEl.addEventListener("click", toggle);
-    faqEl.innerHTML = `${faq.title} <i class="fa-solid fa-chevron-up"></i>`;
+    faqEl.innerHTML = `<i class="fa-solid fa-chevron-up"></i>${faq.title} `;
     parentEl.appendChild(faqEl);
 
     const faqBody = document.createElement("div");

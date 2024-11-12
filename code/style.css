@@ -38,20 +38,26 @@ main {
   padding: 15px;
   border-bottom: 1px solid rgb(189, 187, 187);
   display: flex;
-  justify-content: space-between;
 }
 .title:hover {
-  background-color: rgb(183, 222, 222);
+  /* background-color: rgb(183, 222, 222); */
+  cursor: pointer;
 }
 .description {
-  display: none;
-  padding: 15px;
+  /* display: none; */
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  cursor: default;
+  /* padding: 15px; */
   background-color: white;
 }
 .active + div {
-  display: block;
+  /* display: block; */
+  max-height: 500px;
+  padding: 20px;
 }
 
 .fa-solid {
-  margin-left: 20px;
+  margin-right: 20px;
 }
